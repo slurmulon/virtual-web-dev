@@ -295,6 +295,6 @@ Although I've used this development process on several re-write projects now in 
 
 I will continue to extend upon these concepts as I experience the novel and unique needs of the applications I develop. I'm particularly interested in how this concept can be generally applied to other integration points.
 
-A more formal description of VWD is necessary before it can be widely adopted in its most useful form. Any help from the open source community is certainly welcome. It seems to me that some sort of hybrid between API/Service Virtualization and VWD is key.
+A more formal description of VWD is necessary before it can be widely adopted in its most useful form. Any help from the open source community is certainly welcome.
 
 If you have used something similar to VWD and would like to share your experiences, ideas, or opinions then please open up a Github issue. I would love to talk about this approach more with others!
