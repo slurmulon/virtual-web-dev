@@ -180,7 +180,7 @@ Besides practically eliminating the risk of blockage between front-end and back-
 
  - Dynamic fixture tooling (hazy, hercule, etc.) allows you to keep your fixtures DRY.
 
- - Pairs cleanly with both Domain-Driven Design (DDD), Test-Driven Development (TDD) and Behavior-Driven Development.
+ - Pairs cleanly with Domain-Driven Design (DDD), Test-Driven Development (TDD) and Behavior-Driven Development.
 
  - The initial time and resource investment is almost always small, except with unusually large and complicated APIs.
 
