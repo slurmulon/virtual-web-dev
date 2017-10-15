@@ -137,7 +137,7 @@ Anyways, wrapping up my story. This mock server insantly tore down the sludge-li
 
 Finished API resources could be left untouched while incomplete resources could be easily configured to use mock API resources (i.e. JSON fixtures).
 
-Once an API resource was complete a front-end engineer would simply disable the mock route for the resource, run some tests, perform any necessary fixes and close out the work.
+Once an API resource was completed a front-end engineer would simply disable the mock route for the resource, run some tests, perform any necessary fixes and close out the work.
 
 90% of the time the real integration just works and no additional development is required.
 
