@@ -36,13 +36,15 @@ However, there are additional concepts which Virtual Web Development builds upon
 
 ## Definition
 
-Virtual Web Development (VWD) is a development process that incorporates ideas from Test-Driven Development (TDD), Behavior-Driven Development (BDD), and Service Virtualization.
+Virtual Web Development (VWD) is a development process that combines and extends on ideas from Test-Driven Development (TDD), Behavior-Driven Development (BDD), and Service Virtualization.
 
-The primary goal of VWD is to reduce development friction between the various integration points of a web application's architecture and to facilitate a healthy amount of upfront design and planning.
+The ultimate goals of VWD are to reduce development friction between the integration points of a web application and to facilitate a healthy amount of collaborative design and planning.
 
-It is intended to be complementary, minimally invasive and relatively flexible in how it may be approached. It also integrates cleanly with previously established design processes such as BDD.
+VWD achieves these goals by taking a mock-first approach to development and by defining conventions around a developer's environment and workflow. The behaviors of a web API are also formally described using fixtures and standardized documentation before the work begins.
 
-While it's easy for an individual engineer to have a solid natural sense for processes and techniques that accelerate productivity, it is no doubt beneficial to formally describe these processes as much as possible such that they can be collaboratively reasoned about, refined and adopted.
+VWD strives to be complementary, minimally invasive and relatively flexible in how it can be approached. It also integrates cleanly with previously established development processes such as BDD.
+
+While it's easy for an individual engineer to have a solid natural sense for development processes and techniques that accelerate productivity, it is no doubt beneficial to formally describe these processes so they can be collaboratively reasoned about, refined and adopted.
 
 ### Concepts
 
@@ -253,7 +255,7 @@ Virtual Web Development shares many concepts and paradigms with [Service Virtual
 
 However VWD is a hybrid ecosystem because it concerns itself with more than just application services. It also defines guidelines for the developer environment and expects a hybrid proxy service for transparently unifying both mock and real data.
 
-Because VWD shares so much with Service Virtualization, it naturally takes inspiration from both **Test-Driven Development (TDD)** and **Behavior-Driven Development (BDD)**, both of which are based on mockist principles.
+Because VWD shares so much with Service Virtualization, it naturally takes inspiration from both TDD and BDD, both of which are based on mockist principles.
 
 ### Mocking
 
