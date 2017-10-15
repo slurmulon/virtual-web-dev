@@ -87,7 +87,7 @@ Under each entity is a list of known tools that can be used to create them. The 
 
  - Mock API server
    * **Purpose**: Provides mocked API resource fixtures through a stand-alone service
-   * **Tools**: Drakov, RAML Mocking Servier, WireMock, Swagger API Auto Mocking
+   * **Tools**: Drakov, RAML Mocking Server, WireMock, Swagger API Auto Mocking
 
  - Localized hybrid proxy service
 
