@@ -86,17 +86,17 @@ Under each entity is a list of known tools that can be used to create them. The 
    * **Tools**: Vagrant, Puppet, Chef, Docker, Terraform
 
  - Mock API server
-   * **Purpose**: Provides mocked API resource fixtures as a stand-alone service
+   * **Purpose**: Provides mocked API resource fixtures through a stand-alone service
    * **Tools**: Drakov, RAML Mocking Servier, WireMock, Swagger API Auto Mocking
 
- - Localized hybrid proxy service.
+ - Localized hybrid proxy service
 
    * **Purpose**: Creates a unifying HTTP interface between your mock API and your real API (hence a "hybrid")
    * **Tools**: NGINX, Sinatra, Express, Koa, Flask
 
  - Standardized and machine-readable API documentation
 
-   * **Purpose**: Ensures consistency and allows many tasks to be automated
+   * **Purpose**: Ensures consistency and allows a variety of tasks to be automated
    * **Tools**: API Blueprint, RAML, Swagger, OpenAPI
 
  - API resource fixtures (typically formatted in JSON)
@@ -108,6 +108,11 @@ Under each entity is a list of known tools that can be used to create them. The 
 
    * **Purpose**: Allows for rapid debugging of production issues and eases maintenance of your documentation and fixtures
    * **Tools**: WireMock, MockServer, vcrpy
+
+ - Centralized configuration files
+
+   * **Purpose**: Helps provide consistency between individual developer environments and simplifies application scaffolding
+   * **Tools**: Dat, Box, OwnCloud
 
 ### Adherence
 
