@@ -194,7 +194,7 @@ Our original mocking solution was excellent and served its purpose far beyond wh
 
 ### API Blueprint
 
-This is where [API Blueprint](https://apiblueprint.org) comes in. API Blueprint is a high-level description language (based on Markdown) for specifying the supported behaviors of a web APIs.
+This is where [API Blueprint](https://apiblueprint.org) comes in. API Blueprint is a high-level description language (based on Markdown) for specifying the supported behaviors of web APIs.
 It essentially becomes the **official technical documentation** of your API.
 
 It also supports JSON Schema, which gives you even more flexibility when it comes to thoroughly mocking your APIs.
