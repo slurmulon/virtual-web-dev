@@ -4,7 +4,7 @@
 
 ---
 
-## Scenario
+## Rationale
 
 Allow me to paint you a picture.
 
