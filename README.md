@@ -251,7 +251,7 @@ I have a bias towards API Blueprint because it's minimally invasive, based on Ma
 
 Virtual Web Development shares many concepts and paradigms with [Service Virtualization](https://smartbear.com/learn/software-testing/what-is-service-virtualization/) and can be viewed as an extension of it.
 
-However VWD is a hybrid ecosystem because it concerns itself with more than just services. It also defines guidelines for the developer environment and expects a proxy service for transparently unifying both mock and real data.
+However VWD is a hybrid ecosystem because it concerns itself with more than just application services. It also defines guidelines for the developer environment and expects a hybrid proxy service for transparently unifying both mock and real data.
 
 Because VWD shares so much with Service Virtualization, it naturally takes inspiration from both **Test-Driven Development (TDD)** and **Behavior-Driven Development (BDD)**, both of which are based on mockist principles.
 
