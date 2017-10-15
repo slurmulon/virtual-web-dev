@@ -188,7 +188,7 @@ Besides practically eliminating the risk of blockage between front-end and back-
 
 ## Tech
 
-Over the years I've I ended up utilizing mock development successfully on multiple web application re-writes. However, I did so using different technology.
+Over the years I've I ended up utilizing VWD (or something like it) successfully on multiple web application re-writes. However, I did so using different technology.
 
 Our original mocking solution was excellent and served its purpose far beyond what was expected, but it did not utilize any standards around describing the API and its inputs and outputs.
 
