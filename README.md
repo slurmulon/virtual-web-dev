@@ -211,7 +211,7 @@ There are lots of incredibly useful modules for API Blueprint.
 
 The most relevant module to VWD is **[Drakov](https://npmjs.com/drakov)**. This module effortlessly generates a mock HTTP server based on your API Blueprint definition.
 
-You should take it to the next level by creating a central NGINX, Express or Sinatra server that acts as your hybrid proxy service. This hybrid interface redirects certain requests to the mock server and others to your real implementation based on your needs.
+VWD expects you to take it to the next level by creating a localized development server that acts as your hybrid proxy service. This hybrid interface redirects certain requests to the mock server and others to your real implementation based on your needs.
 
 This also helps work around issues related to CORS by piping every request through the same host instead of forcing your client to juggle multiple API integrations (anti-pattern). If you don't do this, you will usually have to choose between the mock and the real implementation instead of being able to freely combine them.
 
