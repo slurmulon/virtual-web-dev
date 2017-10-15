@@ -133,10 +133,6 @@ Requests to mocked API routes would be redirected to a static JSON fixture while
 
 He also put in some awesome features for proxying hosts and coordinating data, configs and processes between all of our apps, but that's besides the point. In general it was perfectly robust and gave the team way more benefit than we thought it would.
 
-> Perhaps others have utilized this technique at this level for a long time, I don't know because the term "Mock Development" isn't an established term and nobody really talks about it, online or otherwise.
->
-> Even if this has been some sort of underground or private practice, I feel it's traditionally been done in an adhoc manner since there has never been any solid tooling for it, until now (more on that in a minute).
-
 Anyways, wrapping up my story. This mock server insantly tore down the sludge-like barrier between the front-end and back-end teams and the development friction evaporated.
 
 Finished API resources could be left untouched while incomplete resources could be easily configured to use mock API resources (i.e. JSON fixtures).
