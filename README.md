@@ -91,7 +91,7 @@ Under each entity is a list of known tools that can be used to create them. The 
 
  - Localized hybrid proxy service
 
-   * **Purpose**: Creates a unifying HTTP interface between your mock API and your real API (hence a "hybrid")
+   * **Purpose**: Creates a unifying HTTP proxy interface between your mock API and your real API (hence a "hybrid")
    * **Tools**: NGINX, Sinatra, Express, Koa, Flask
 
  - Standardized and machine-readable API documentation
@@ -101,7 +101,7 @@ Under each entity is a list of known tools that can be used to create them. The 
 
  - API resource fixtures (typically formatted in JSON)
 
-   * **Purpose**: Describes the various states possible in your API
+   * **Purpose**: Describes the possible states of your API
    * **Tools**: JSON Schema Faker, Faker, Hazy
 
  - Scripts for capturing API requests and responses
