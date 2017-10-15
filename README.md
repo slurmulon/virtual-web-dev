@@ -42,7 +42,7 @@ The primary goal of VWD is to reduce development friction between the various in
 
 It is intended to be complementary, minimally invasive and relatively flexible in how it may be approached. It also integrates cleanly with previously established design processes such as BDD.
 
-While it's easy for an individual engineer have a solid natural sense for processes and techniques that accelerate productivity, it is no doubt beneficial to formally describe these processes as much as possible such that they can be collaboratively reasoned about, refined and adopted.
+While it's easy for an individual engineer to have a solid natural sense for processes and techniques that accelerate productivity, it is no doubt beneficial to formally describe these processes as much as possible such that they can be collaboratively reasoned about, refined and adopted.
 
 ### Concepts
 
