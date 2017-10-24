@@ -74,17 +74,17 @@ While it's easy for an individual engineer to have a solid natural sense for dev
 
  - Pointing a developer's local virtual machine to an external environment should only require changing an environment variable (i.e. `NODE_ENV='staging'`)
 
- - A mirror of production should be used by developers when debugging or testing production issues. This **prevents any accidental changes** from taking place on production itself.
+ - A **mirror of production** should be used by developers when debugging or testing production issues. This **prevents any accidental changes** from taking place on production itself.
 
 ### Entities
 
-This follwing list describes the conceptual entities involved in VWD that allow you to properly adhere to the constraints outlined above.
+This follwing list describes the conceptual entities involved in VWD that allow you to properly adhere to the concepts outlined above.
 
 Under each entity is a list of known tools that can be used to create them. The lists of tools should be considered non-exhaustive and purely suggestive. A more detailed list of available technology can be found towards the end of this document.
 
- - Version-controlled virtual machine image(s)
+ - Version-controlled virtual developer ecosystem
 
-   * **Purpose**: All developers share and use this VM to develop so that environment parity is at its highest
+   * **Purpose**: All developers share and use this collection of VMs to develop so that environment parity is at its highest
    * **Tools**: Vagrant, Puppet, Chef, Docker, Terraform
 
  - Mock API server
@@ -120,7 +120,7 @@ Under each entity is a list of known tools that can be used to create them. The 
 
 It's simple.
 
-As long as the previously defined concepts are incorporated using all of the described entities, VWD zen is achieved.
+As long as the previously defined concepts are incorporated using all of the described entities, you are using VWD successfully.
 
 ## Background
 
@@ -176,13 +176,13 @@ Besides practically eliminating the risk of blockage between front-end and back-
 
  - Provides complete freedom of choice as to where and how much to utilize VWD. Minimally invasive.
 
- - The fixtures used by the mock server/proxy can also be utilized by unit tests.
+ - The fixtures used by the hybrid proxy service can also be utilized by unit tests.
 
  - Allows you to perform integration and isolated testing safely.
 
  - Dynamic fixture tooling (hazy, hercule, etc.) allows you to keep your fixtures DRY.
 
- - Pairs cleanly with Domain-Driven Design (DDD), Test-Driven Development (TDD) and Behavior-Driven Development.
+ - Pairs cleanly with Domain-Driven Design (DDD), TDD and BDD.
 
  - The initial time and resource investment is almost always small, except with unusually large and complicated APIs.
 
@@ -203,7 +203,7 @@ It also supports JSON Schema, which gives you even more flexibility when it come
 
 I won't go into all of the details here. There are plenty of solid examples on the API Blueprint website.
 
-The important concept to keep in mind is that API Blueprint offers a standardized, machine-readable method of documenting your API and provides a high amount of flexibility and forgiveness since it's based on Markdown.
+The important concept to keep in mind is that API Blueprint offers a standardized, machine-readable method of documenting your API and provides a high amount of flexibility since it's based on Markdown.
 
 Most importantly it can be used to automate a wide number of tasks involved in API development.
 
@@ -215,7 +215,7 @@ The most relevant module to VWD is **[Drakov](https://npmjs.com/drakov)**. This 
 
 VWD expects you to take it to the next level by creating a localized development server that acts as your hybrid proxy service. This hybrid interface redirects certain requests to the mock server and others to your real implementation based on your needs.
 
-This also helps work around issues related to CORS by piping every request through the same host instead of forcing your client to juggle multiple API integrations (anti-pattern). If you don't do this, you will usually have to choose between the mock and the real implementation instead of being able to freely combine them.
+This also helps work around issues related to CORS by piping every request through the same host instead of forcing your client to juggle multiple API integrations (generally an anti-pattern). If you don't do this, you will usually have to choose between the mock and the real implementation instead of being able to freely combine them.
 
 #### Problem
 
@@ -272,12 +272,24 @@ Because VWD shares so much with Service Virtualization, it naturally takes inspi
 - [Sinatra](http://www.sinatrarb.com/)
 - [Express](https://expressjs.com/)
 
-### Environments
+### Provisioning
 
-- [Chef](https://www.chef.io/chef/)
-- [Puppet](http://puppet.com/)
 - [Vagrant](https://www.vagrantup.com/)
 - [Docker](https://www.docker.com/)
+- [Ansible](https://www.ansible.com/)
+
+### Configuration
+
+- [Puppet](http://puppet.com/)
+- [Chef](https://www.chef.io/chef/)
+- [Saltstack](https://saltstack.com/)
+
+### Tasks
+
+- [Fabric](http://www.fabfile.org/)
+
+### Infrastructure
+
 - [Terraform](https://www.terraform.io/)
 
 ### Data
