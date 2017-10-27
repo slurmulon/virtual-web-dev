@@ -57,6 +57,8 @@ While it's easy for an individual engineer to have a solid natural sense for dev
  - Developers should utilize a **localized proxy service** that establishes a **hybrid interface** which **conditionally mocks API resources and entities** based on the working status of the desired API route
 
  - Mocks and fixtures should be thorough enough such that a **developer can simply swap out mock implementations for real implementations** while every feature remains functional
+ 
+ - Mocks should generally be preferred over actual service integrations, especially in tests
 
  - **API documentation** should be formally described using a **machine-readable specification** such as API Blueprint or OpenAPI
 
