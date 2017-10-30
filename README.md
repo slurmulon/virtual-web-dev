@@ -126,8 +126,6 @@ As long as the previously defined concepts are incorporated using all of the des
 
 ## Background
 
-For whatever reason I am usually the first person to introduce something similar to VWD to the team, except for one time - the time that I myself was introduced to some of the concepts underlying this process.
-
 A great engineering friend of mine joined a large solar company I was working for, and one of the first tasks he was given was to do a little DevOps and give the team some quick yet much needed wins.
 
 After he dug around the code and talked to engineering team, he soon realized that their greatest struggle was the high amount of development friction that existed between the front-end and back-end teams.
@@ -150,7 +148,7 @@ Once an API resource was completed a front-end engineer would simply disable the
 
 90% of the time the real integration just works and no additional development is required.
 
-But that remaining 10% means there are some situations where swapping out "mock" for "real" doesn't just magically work:
+But that remaining 10% means there are certain situations where swapping out "mock" for "real" doesn't always magically work:
 
  - When you are using a "hybrid" setup (hybrid = mocks + real) and attempting to coordinate states or map information between fixtures and real data (this is the most common issue)
 
