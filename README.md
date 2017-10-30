@@ -28,8 +28,6 @@ This painful process typically repeats itself several times over before the firs
 
 This is all pretty depressing, right? Sure, but fortunately it doesn't have to be this way.
 
-Really.
-
 And the best part is, you can gain a ton of benefit by simply changing the the way you do work that you were going to do (or should do) anyways: documentation.
 
 However, there are additional concepts which Virtual Web Development builds upon that should be adopted by any well-rounded engineering team.
@@ -134,17 +132,15 @@ This problem was horribly exacerbated because the company was performing a massi
 
 He quickly put together a virtual developer ecosystem based on Vagrant and Chef. It offered a consistent and predictable environment for engineers to develop in (none of this "works for me" insanity).
 
-It also included a pattern-based routing proxy server (based on Sinatra) that allowed developers to toggle mocking on the individual API routes of our applications.
+It also included a pattern-based localized proxy service (based on Sinatra) that allowed developers to toggle mocking on the individual API routes of our applications.
 
 Requests to mocked API routes would be redirected to a static JSON fixture while requests to real working routes would be proxied to the configured environment (typically `localhost`).
 
-He also put in some awesome features for proxying hosts and coordinating data, configs and processes between all of our apps, but that's besides the point. In general it was perfectly robust and gave the team way more benefit than we thought it would.
+This mock server insantly tore down the sludge-like barrier between the front-end and back-end teams and the development friction evaporated.
 
-Anyways, wrapping up my story. This mock server insantly tore down the sludge-like barrier between the front-end and back-end teams and the development friction evaporated.
+Finished API resources could be left untouched while partially or unimplemented resources could be easily configured to use mock API resources (i.e. JSON fixtures).
 
-Finished API resources could be left untouched while incomplete resources could be easily configured to use mock API resources (i.e. JSON fixtures).
-
-Once an API resource was completed a front-end engineer would simply disable the mock route for the resource, run some tests, perform any necessary fixes and close out the work.
+Once an API resource was complete a front-end engineer would simply disable the mock route for the resource, run some tests, perform any necessary fixes and close out the work.
 
 90% of the time the real integration just works and no additional development is required.
 
@@ -164,35 +160,35 @@ Either way, the amount of work this saves your software team is inevitably great
 
 Besides practically eliminating the risk of blockage between front-end and back-end work, there are numerous other benefits to utilizing VWD in your projects:
 
- - Produces quick results that are as close to the real implementation as possible.
+ - Rapidly produces results that are as close to the real implementation as possible.
 
  - Forces both teams to agree upon initial request and response formats for the API. This helps to ensure an adequate amount of planning and design work has been done before development work can begin.
 
  - Allows you to easily replicate or clone production states for debugging. Simply capture the HTTP requests and responses, save them as fixtures, point your mock proxy server at the fixtures and voila :sparkles:.
 
- - Enables engineers on all sides to retain a healthy flow. If they don't have to switch gears they are more likely to produce a higher quality solution in a shorter amount of time.
+ - Enables engineers to retain a healthy development flow regardless of their inter-dependenent tasks. They less often they have to switch gears the more likely they are to produce a higher quality solution in a shorter amount of time.
 
- - Modern tooling allows for standardized approaches to this problem. Learn it once, use it anywhere.
+ - Modern tooling allows for standardized approaches to many of the problems that VMD tries to solve.
 
- - Provides complete freedom of choice as to where and how much to utilize VWD. Minimally invasive.
+ - Minimally invasive. Provides a degree of freedom over where and how much you can use VWD.
 
- - The fixtures used by the hybrid proxy service can also be utilized by unit tests.
+ - Fixtures used by the hybrid proxy service can also be utilized by unit tests.
 
  - Allows you to perform integration and isolated testing safely.
 
- - Dynamic fixture tooling (hazy, hercule, etc.) allows you to keep your fixtures DRY.
+ - Dynamic fixture tooling allows you to keep your fixtures DRY.
 
  - Pairs cleanly with Domain-Driven Design (DDD), TDD and BDD.
 
  - The initial time and resource investment is almost always small, except with unusually large and complicated APIs.
 
- - Eases the nerves of management and stakeholders who are anxious to see progress. However, it should be made clear to them which parts of the application are mocked and which aren't.
+ - Appeases any managers or stakeholders who are anxious to see progress. However, it should be made abundantly clear to them which parts of the application are mocked and which are not.
 
 ## Tech
 
 Over the years I've I ended up utilizing VWD (or something like it) successfully on multiple web application re-writes. However, I did so using different technology.
 
-Our original mocking solution was excellent and served its purpose far beyond what was expected, but it did not utilize any standards around describing the API and its inputs and outputs.
+Our original mocking solution at the solar company was excellent and served its purpose far beyond what was expected, but it did not utilize any standards around describing the API and its inputs and outputs.
 
 ### API Blueprint
 
