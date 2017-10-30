@@ -154,7 +154,7 @@ But that remaining 10% means there are certain situations where swapping out "mo
 
  - When your fixtures are excessively randomized (such as random UUIDs). This leads to complications around mapping or validating data. Relates to the first issue.
 
-Either way, the amount of work this saves your software team is inevitably great and worth the initial investment. The maintenance cost is also very low.
+Either way, the amount of work this saves your software team is almost always great and worth the initial investment. The maintenance cost is also very low.
 
 ## Benefits
 
@@ -166,7 +166,7 @@ Besides practically eliminating the risk of blockage between front-end and back-
 
  - Allows you to easily replicate or clone production states for debugging. Simply capture the HTTP requests and responses, save them as fixtures, point your mock proxy server at the fixtures and voila :sparkles:.
 
- - Enables engineers to retain a healthy development flow regardless of their inter-dependenent tasks. They less often they have to switch gears the more likely they are to produce a higher quality solution in a shorter amount of time.
+ - Enables engineers to retain a healthy development flow regardless of their inter-dependenent tasks. The less often they have to switch gears the more likely they are to produce a higher quality solution in a shorter amount of time.
 
  - Modern tooling allows for standardized approaches to many of the problems that VMD tries to solve.
 
@@ -209,30 +209,33 @@ There are lots of incredibly useful modules for API Blueprint.
 
 The most relevant module to VWD is **[Drakov](https://npmjs.com/drakov)**. This module effortlessly generates a mock HTTP server based on your API Blueprint definition.
 
-VWD expects you to take it to the next level by creating a localized development server that acts as your hybrid proxy service. This hybrid interface redirects certain requests to the mock server and others to your real implementation based on your needs.
+VWD expects you to take mocking to the next level by creating a localized development server that acts as your hybrid proxy service. Based on your unique needs, this hybrid interface redirects certain requests to the mock server and others to your real implementation.
 
-This also helps work around issues related to CORS by piping every request through the same host instead of forcing your client to juggle multiple API integrations (generally an anti-pattern). If you don't do this, you will usually have to choose between the mock and the real implementation instead of being able to freely combine them.
+This design also helps work around issues related to CORS by piping every request through the same host instead of forcing your client to juggle multiple API integrations (generally an anti-pattern). If you don't do this, you will usually have to choose between the mock and the real implementation instead of being able to freely combine them.
 
 #### Problem
 
-One major downside of API Blueprint is that it is completely denormalized. In other words, you have to write everything in a single and often massive Markdown file. This is quite painful because most of the time you want to share data between your fixtures
-or API resources.
+One major downside of API Blueprint is that it is completely static and denormalized. In other words, you have to write everything in a single and often massive Markdown file. This is quite painful because most of the time you want to share data between your fixtures or API resources.
 
 For instance, generally APIs will allow clients to access individual entities by unique paths but they will also allow some of the entities to be nested / denormalized into other parent entities.
 Unless shared data like this is centralized, the inherent duplication causes future modifications to be verbose, prone to human error and take _way_ longer than they need to.
 
 #### Solution
 
-I wrote a build tool a couple years back that attempted to solve this problem. [`blot`](https://github.com/slurmulon/blot) allows you to write your API Blueprints in individual, normalized files.
+I wrote a build tool a couple years back that attempted to solve this problem.
+
+[`blot`](https://github.com/slurmulon/blot) allows you to write your API Blueprints in individual, normalized files.
+
 It also allows you to generate random fixture data and render your API blueprint as HTML. Think of it as a swiss-army helper module for writing, building and rendering large API Blueprint definitions.
 
 `blot` incorporates two other tools called [`hazy`](https://github.com/slurmulon/hazy) and [`hercule`](https://github.com/jamesramsay/hercule)
 
- - `hazy` describes a syntax for generating random data into JSON objects and also manages a pool of fixtures that may be queried using JSON Path patterns.
+ - `hazy` describes a JSON-friendly syntax for generating random data into JSON objects. It also manages a pool of fixtures that may be queried using JSON Path patterns. Based on [ChanceJS](http://chancejs.com/).
 
- - `hercule` provides a syntax that allows  generic transclusion of plaintext data. It works great for any plaintext data but was built with an emphasis on Markdown (the syntax is influenced by it).
+ - `hercule` describes a syntax that allows you to dynamically transclude plaintext data. It works great for any plaintext data but was built with an emphasis on Markdown (the syntax is heavily influenced by it).
 
-`blot` is not a perfect or mature tool, not even close. It needs better error handling, more tests and several other things that I haven't had time to address.
+`blot` is far from a perfect tool. I believe the fundamental concepts and approach are pretty solid, but it needs better error handling, more tests and several other things that I haven't had time to address.
+
 I simply have too many projects I'm working on or intend to work on, but if anybody is interested in progressing it further then please don't hesitate to reach out.
 
 ### Specifications
