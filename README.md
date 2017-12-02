@@ -4,6 +4,16 @@
 
 ---
 
+Virtual Web Development (VWD) is a development process that combines and extends on ideas from Test-Driven Development (TDD), Behavior-Driven Development (BDD), and Service Virtualization.
+
+The ultimate goals of VWD are to reduce development friction between the integration points of a web application and to facilitate a healthy amount of collaborative design and planning.
+
+VWD achieves these goals by taking a mock-first approach to development and by defining conventions around a developer's environment and workflow. The behaviors of a web API are also formally described using fixtures and standardized documentation before the work begins.
+
+VWD strives to be complementary, minimally invasive and relatively flexible in how it can be approached. It also integrates cleanly with previously established development processes such as BDD.
+
+While it's easy for an individual engineer to have a solid natural sense for development processes and techniques that accelerate productivity, it is no doubt beneficial to formally describe these processes so they can be collaboratively reasoned about, refined and adopted.
+
 ## Rationale
 
 Allow me to paint you a picture.
@@ -33,18 +43,6 @@ Really.
 And the best part is, you can gain a ton of benefit by simply changing the the way you do work that you were going to do (or should do) anyways: documentation.
 
 However, there are additional concepts which Virtual Web Development builds upon that should be adopted by any well-rounded engineering team.
-
-## Definition
-
-Virtual Web Development (VWD) is a development process that combines and extends on ideas from Test-Driven Development (TDD), Behavior-Driven Development (BDD), and Service Virtualization.
-
-The ultimate goals of VWD are to reduce development friction between the integration points of a web application and to facilitate a healthy amount of collaborative design and planning.
-
-VWD achieves these goals by taking a mock-first approach to development and by defining conventions around a developer's environment and workflow. The behaviors of a web API are also formally described using fixtures and standardized documentation before the work begins.
-
-VWD strives to be complementary, minimally invasive and relatively flexible in how it can be approached. It also integrates cleanly with previously established development processes such as BDD.
-
-While it's easy for an individual engineer to have a solid natural sense for development processes and techniques that accelerate productivity, it is no doubt beneficial to formally describe these processes so they can be collaboratively reasoned about, refined and adopted.
 
 ### Concepts
 
