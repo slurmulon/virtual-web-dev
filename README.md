@@ -42,6 +42,8 @@ And the best part is, you can gain a ton of benefit by simply changing the the w
 
 However, there are additional concepts which Virtual Web Development builds upon that should be adopted by any well-rounded engineering team.
 
+## Definition
+
 ### Concepts
 
  - Developers should **only write code in a version-controlled virtual machine or virtual environment** (e.g. Vagrant, Docker, etc.)
