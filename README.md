@@ -38,8 +38,6 @@ This painful process typically repeats itself several times over before the firs
 
 This is all pretty depressing, right? Sure, but fortunately it doesn't have to be this way.
 
-Really.
-
 And the best part is, you can gain a ton of benefit by simply changing the the way you do work that you were going to do (or should do) anyways: documentation.
 
 However, there are additional concepts which Virtual Web Development builds upon that should be adopted by any well-rounded engineering team.
@@ -55,6 +53,8 @@ However, there are additional concepts which Virtual Web Development builds upon
  - Developers should utilize a **localized proxy service** that establishes a **hybrid interface** which **conditionally mocks API resources and entities** based on the working status of the desired API route
 
  - Mocks and fixtures should be thorough enough such that a **developer can simply swap out mock implementations for real implementations** while every feature remains functional
+ 
+ - Mocks should generally be preferred over actual service integrations, especially in tests
 
  - **API documentation** should be formally described using a **machine-readable specification** such as API Blueprint or OpenAPI
 
@@ -122,8 +122,6 @@ As long as the previously defined concepts are incorporated using all of the des
 
 ## Background
 
-For whatever reason I am usually the first person to introduce something similar to VWD to the team, except for one time - the time that I myself was introduced to some of the concepts underlying this process.
-
 A great engineering friend of mine joined a large solar company I was working for, and one of the first tasks he was given was to do a little DevOps and give the team some quick yet much needed wins.
 
 After he dug around the code and talked to engineering team, he soon realized that their greatest struggle was the high amount of development friction that existed between the front-end and back-end teams.
@@ -132,21 +130,19 @@ This problem was horribly exacerbated because the company was performing a massi
 
 He quickly put together a virtual developer ecosystem based on Vagrant and Chef. It offered a consistent and predictable environment for engineers to develop in (none of this "works for me" insanity).
 
-It also included a pattern-based routing proxy server (based on Sinatra) that allowed developers to toggle mocking on the individual API routes of our applications.
+It also included a pattern-based localized proxy service (based on Sinatra) that allowed developers to toggle mocking on the individual API routes of our applications.
 
 Requests to mocked API routes would be redirected to a static JSON fixture while requests to real working routes would be proxied to the configured environment (typically `localhost`).
 
-He also put in some awesome features for proxying hosts and coordinating data, configs and processes between all of our apps, but that's besides the point. In general it was perfectly robust and gave the team way more benefit than we thought it would.
+This mock server insantly tore down the sludge-like barrier between the front-end and back-end teams and the development friction evaporated.
 
-Anyways, wrapping up my story. This mock server insantly tore down the sludge-like barrier between the front-end and back-end teams and the development friction evaporated.
+Finished API resources could be left untouched while partially or unimplemented resources could be easily configured to use mock API resources (i.e. JSON fixtures).
 
-Finished API resources could be left untouched while incomplete resources could be easily configured to use mock API resources (i.e. JSON fixtures).
-
-Once an API resource was completed a front-end engineer would simply disable the mock route for the resource, run some tests, perform any necessary fixes and close out the work.
+Once an API resource was complete a front-end engineer would simply disable the mock route for the resource, run some tests, perform any necessary fixes and close out the work.
 
 90% of the time the real integration just works and no additional development is required.
 
-But that remaining 10% means there are some situations where swapping out "mock" for "real" doesn't just magically work:
+But that remaining 10% means there are certain situations where swapping out "mock" for "real" doesn't always magically work:
 
  - When you are using a "hybrid" setup (hybrid = mocks + real) and attempting to coordinate states or map information between fixtures and real data (this is the most common issue)
 
@@ -156,41 +152,41 @@ But that remaining 10% means there are some situations where swapping out "mock"
 
  - When your fixtures are excessively randomized (such as random UUIDs). This leads to complications around mapping or validating data. Relates to the first issue.
 
-Either way, the amount of work this saves your software team is inevitably great and worth the initial investment. The maintenance cost is also very low.
+Either way, the amount of work this saves your software team is almost always great and worth the initial investment. The maintenance cost is also very low.
 
 ## Benefits
 
 Besides practically eliminating the risk of blockage between front-end and back-end work, there are numerous other benefits to utilizing VWD in your projects:
 
- - Produces quick results that are as close to the real implementation as possible.
+ - Rapidly produces results that are as close to the real implementation as possible.
 
  - Forces both teams to agree upon initial request and response formats for the API. This helps to ensure an adequate amount of planning and design work has been done before development work can begin.
 
  - Allows you to easily replicate or clone production states for debugging. Simply capture the HTTP requests and responses, save them as fixtures, point your mock proxy server at the fixtures and voila :sparkles:.
 
- - Enables engineers on all sides to retain a healthy flow. If they don't have to switch gears they are more likely to produce a higher quality solution in a shorter amount of time.
+ - Enables engineers to retain a healthy development flow regardless of their inter-dependenent tasks. The less often they have to switch gears the more likely they are to produce a higher quality solution in a shorter amount of time.
 
- - Modern tooling allows for standardized approaches to this problem. Learn it once, use it anywhere.
+ - Modern tooling allows for standardized approaches to many of the problems that VMD tries to solve.
 
- - Provides complete freedom of choice as to where and how much to utilize VWD. Minimally invasive.
+ - Minimally invasive. Provides a degree of freedom over where and how much you can use VWD.
 
- - The fixtures used by the hybrid proxy service can also be utilized by unit tests.
+ - Fixtures used by the hybrid proxy service can also be utilized by unit tests.
 
  - Allows you to perform integration and isolated testing safely.
 
- - Dynamic fixture tooling (hazy, hercule, etc.) allows you to keep your fixtures DRY.
+ - Dynamic fixture tooling allows you to keep your fixtures DRY.
 
  - Pairs cleanly with Domain-Driven Design (DDD), TDD and BDD.
 
  - The initial time and resource investment is almost always small, except with unusually large and complicated APIs.
 
- - Eases the nerves of management and stakeholders who are anxious to see progress. However, it should be made clear to them which parts of the application are mocked and which aren't.
+ - Appeases any managers or stakeholders who are anxious to see progress. However, it should be made abundantly clear to them which parts of the application are mocked and which are not.
 
 ## Tech
 
 Over the years I've I ended up utilizing VWD (or something like it) successfully on multiple web application re-writes. However, I did so using different technology.
 
-Our original mocking solution was excellent and served its purpose far beyond what was expected, but it did not utilize any standards around describing the API and its inputs and outputs.
+Our original mocking solution at the solar company was excellent and served its purpose far beyond what was expected, but it did not utilize any standards around describing the API and its inputs and outputs.
 
 ### API Blueprint
 
@@ -211,30 +207,33 @@ There are lots of incredibly useful modules for API Blueprint.
 
 The most relevant module to VWD is **[Drakov](https://npmjs.com/drakov)**. This module effortlessly generates a mock HTTP server based on your API Blueprint definition.
 
-VWD expects you to take it to the next level by creating a localized development server that acts as your hybrid proxy service. This hybrid interface redirects certain requests to the mock server and others to your real implementation based on your needs.
+VWD expects you to take mocking to the next level by creating a localized development server that acts as your hybrid proxy service. Based on your unique needs, this hybrid interface redirects certain requests to the mock server and others to your real implementation.
 
-This also helps work around issues related to CORS by piping every request through the same host instead of forcing your client to juggle multiple API integrations (generally an anti-pattern). If you don't do this, you will usually have to choose between the mock and the real implementation instead of being able to freely combine them.
+This design also helps work around issues related to CORS by piping every request through the same host instead of forcing your client to juggle multiple API integrations (generally an anti-pattern). If you don't do this, you will usually have to choose between the mock and the real implementation instead of being able to freely combine them.
 
 #### Problem
 
-One major downside of API Blueprint is that it is completely denormalized. In other words, you have to write everything in a single and often massive Markdown file. This is quite painful because most of the time you want to share data between your fixtures
-or API resources.
+One major downside of API Blueprint is that it is completely static and denormalized. In other words, you have to write everything in a single and often massive Markdown file. This is quite painful because most of the time you want to share data between your fixtures or API resources.
 
 For instance, generally APIs will allow clients to access individual entities by unique paths but they will also allow some of the entities to be nested / denormalized into other parent entities.
 Unless shared data like this is centralized, the inherent duplication causes future modifications to be verbose, prone to human error and take _way_ longer than they need to.
 
 #### Solution
 
-I wrote a build tool a couple years back that attempted to solve this problem. [`blot`](https://github.com/slurmulon/blot) allows you to write your API Blueprints in individual, normalized files.
+I wrote a build tool a couple years back that attempted to solve this problem.
+
+[`blot`](https://github.com/slurmulon/blot) allows you to write your API Blueprints in individual, normalized files.
+
 It also allows you to generate random fixture data and render your API blueprint as HTML. Think of it as a swiss-army helper module for writing, building and rendering large API Blueprint definitions.
 
 `blot` incorporates two other tools called [`hazy`](https://github.com/slurmulon/hazy) and [`hercule`](https://github.com/jamesramsay/hercule)
 
- - `hazy` describes a syntax for generating random data into JSON objects and also manages a pool of fixtures that may be queried using JSON Path patterns.
+ - `hazy` describes a JSON-friendly syntax for generating random data into JSON objects. It also manages a pool of fixtures that may be queried using JSON Path patterns. Based on [ChanceJS](http://chancejs.com/).
 
- - `hercule` provides a syntax that allows  generic transclusion of plaintext data. It works great for any plaintext data but was built with an emphasis on Markdown (the syntax is influenced by it).
+ - `hercule` describes a syntax that allows you to dynamically transclude plaintext data. It works great for any plaintext data but was built with an emphasis on Markdown (the syntax is heavily influenced by it).
 
-`blot` is not a perfect or mature tool, not even close. It needs better error handling, more tests and several other things that I haven't had time to address.
+`blot` is far from a perfect tool. I believe the fundamental concepts and approach are pretty solid, but it needs better error handling, more tests and several other things that I haven't had time to address.
+
 I simply have too many projects I'm working on or intend to work on, but if anybody is interested in progressing it further then please don't hesitate to reach out.
 
 ### Specifications
